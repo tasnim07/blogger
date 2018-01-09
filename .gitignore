@@ -1,0 +1,15 @@
+*.py[cod]
+__pycache__/
+*.sw[po]
+*.log
+*.pid
+*.env
+*.pkl
+*.ipynb
+.ipynb_checkpoints
+.venv
+*.json
+temp/
+backup/
+scripts/
+db.sqlite3

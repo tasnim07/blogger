@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post Create</title>
+  </head>
+  <body>
+    <a href="{% url 'app-home' %}">Home</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'logout' %}">Logout</a>
+    <form action="{{ action }}" method="post">
+      {% csrf_token %}
+      <p>Title</br>{{ form.title }}</p>
+      <p>Description</br>{{ form.description }}</p>
+      <button type="submit" value="submit">Post</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!Doctype html>
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'posts/login/body.css' %}">
+  </head>
+  <body class="body">
+    <h1 id="header">Create New Account</h1>
+    
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+    	<tr>
+	  <td>Username</td>
+    	  <td>{{ form.username }}</td>
+    	</tr>
+    	<tr>
+	  <td>Password</td>
+    	  <td>{{ form.password }}</td>
+    	</tr>
+    	<tr>
+	  <td>Email</td>
+    	  <td>{{ form.email }}</td>
+    	</tr>
+	<tr>
+	  <td>Admin</td>
+    	  <td>{{ form.is_superuser }}</td>
+    	</tr>
+      </table>
+      <input type="submit" value="Sign Up" style="margin-left: 80px;margin-top:10px">
+    </form>
+    
+  </body>
+</html>

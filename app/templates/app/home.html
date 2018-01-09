@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <a href="{% url 'post-create' %}">Publish New</a></t>&nbsp;&nbsp;&nbsp;<a href="{% url 'logout' %}">Logout</a>
+    <h2>Recent Posts</h2>
+    {% if post_list %}
+    <ul>
+      {% for post in post_list %}
+      <li>
+	<a href="#">{{ post.title }}</a>
+	<a href="{% url 'post-delete' pk=post.id %}" style="margin-left:50px;">Delete</a>
+	<span style="margin-left: 50px;">Total likes: {{ post.total_likes }}</span>
+	{% if post.is_liked %}
+	  <a href="{% url 'post-unlike' pk=post.id %}" style="margin-left: 50px;">Unlike</a>
+	  {% else %}
+	  <a href="{% url 'post-like' pk=post.id %}" style="margin-left: 50px;">Like</a>
+	  {% endif %}
+	<br>By {{ post.author }} on {{ post.pub_date }}<br>
+	{{ post.description }}
+      </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No Post. Create One <a href="{% url 'post-create' %}">Create a Post</a></p>
+    {% endif %}
+  </body>
+</html>
+
